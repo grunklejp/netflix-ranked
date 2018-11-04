@@ -22,8 +22,8 @@
     <nav>
     	<ul class="pagination">
     		
-    		<!--<li class="page-item"><a class="page-link" href="{{ url_for('prev') }}">Previous</a></li> -->
-    		<li class="page-item"><a class="page-link" href="{{ url_for('next') }}">Next</a></li>
+    	  <li class="page-item"><a class="page-link" href="{{ url_for('prev', current_pg=current_pg) }}">Previous</a></li>
+    		<li class="page-item"><a class="page-link" href="{{ url_for('next', current_pg=current_pg) }}">Next</a></li>
 
     	</ul>
     </nav>

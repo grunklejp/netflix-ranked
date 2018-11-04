@@ -3,39 +3,33 @@ from flask import Flask, render_template
 import sqlite3
 from moviec import Movie
 from access_db import getMovies
+import os
 
-class Config(object):
-    # ...
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
 
+SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
 app = Flask(__name__)
-currentpage = 1
 DATABASE_URL = "rankedmovies.db"
-
 
 
 @app.route('/')
 def helloworld():
-	nlist = getMovies(currentpage)
-	return render_template('main.html', nlist = nlist)
+	current_pg = 1
+	nlist = getMovies(current_pg)
+	return render_template('main.html', nlist=nlist, current_pg=current_pg)
 
-@app.route('/<currentpage>')
-def next():
-	global currentpage
-	currentpage += 1
+@app.route('/<int:current_pg>')
+def next(current_pg):
+	current_pg += 1
 
-	nlist = getMovies(currentpage)
-	return render_template('main.html', nlist= nlist)
+	nlist = getMovies(current_pg)
+	return render_template('main.html', nlist= nlist, current_pg=current_pg)
 
-@app.route('/p/<currentpage>')
-def prev():
-	global currentpage
-	currentpage -= 1
+@app.route('/p/<int:current_pg>')
+def prev(current_pg):
+	current_pg -= 1
 
-	nlist = getMovies(currentpage)
-	return render_template('main.html', nlist= nlist)
-
-
+	nlist = getMovies(current_pg)
+	return render_template('main.html', nlist= nlist, current_pg=current_pg)
 
 
 if __name__ == '__main__':
