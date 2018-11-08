@@ -9,6 +9,7 @@ import os
 SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
 app = Flask(__name__)
 DATABASE_URL = "rankedmovies.db"
+DEBUG = True
 
 
 @app.route('/')
@@ -19,15 +20,6 @@ def helloworld():
 
 @app.route('/<int:current_pg>')
 def next(current_pg):
-	current_pg += 1
-
-	nlist = getMovies(current_pg)
-	return render_template('main.html', nlist= nlist, current_pg=current_pg)
-
-@app.route('/p/<int:current_pg>')
-def prev(current_pg):
-	current_pg -= 1
-
 	nlist = getMovies(current_pg)
 	return render_template('main.html', nlist= nlist, current_pg=current_pg)
 

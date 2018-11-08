@@ -1,4 +1,3 @@
-#needs average rating method
 
 
 class Movie:
@@ -53,8 +52,7 @@ class Movie:
 			return round((self.imdb_percent + self.mc_percent + self.rt_percent) / 3, 2)
 		else:
 			return 0
-
-	# returns neg if the one calling the method is less than the one setting		
+		
 
 	def __str__(self):
 		return '''{}\n\tIMDB : {}\n\tRotten Tomatoes : {}\n\tMetacritic :
