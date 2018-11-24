@@ -1,6 +1,7 @@
 design front end template. 
+convert file structure to module and remove circular dependencies 
 
-function to scrape pictures/logos from website
+function to scrape pictures/logos
 
 full time hosting
 
