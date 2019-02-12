@@ -1,7 +1,7 @@
 #
 #simple movie database api wrapper function
 #get key at http://www.omdbapi.com/apikey.aspx
-#6ea98f27
+
 import requests
 
 class OMDb:
@@ -17,6 +17,6 @@ class OMDb:
 		return server.json()
 
 
-#db = OMDb('6ea98f27')
+#db = OMDb('')
 #mv =db.get_movie('Law and order')
 #print(mv['Ratings'])
